@@ -2,6 +2,9 @@
   "name": "portfolio",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -9,6 +12,18 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.16.0"
+    "@astrojs/node": "^11.0.2",
+    "@midudev/tailwind-animations": "0.2.0",
+    "@tailwindcss/vite": "^4.1.17",
+    "astro": "^7.0.7",
+    "framer-motion": "^12.42.2",
+    "react-icons": "^5.7.0"
+  },
+  "devDependencies": {
+    "@astrojs/react": "^6.0.1",
+    "@types/node": "^25.9.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "tailwindcss": "4.3"
   }
 }

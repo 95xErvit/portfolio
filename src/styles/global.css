@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+
+:root {
+    /* Google Fonts Configuration */
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Manrope', sans-serif;
+
+    /*Colores de background de uso general*/    
+    --background: #F6F1EF;
+    --foreground: #171717;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: var(--background);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@theme {
+    /*Breakpoints*/
+    --breakpoint-mn: 340px;
+    --breakpoint-xs: 500px;
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1400px;
+    --breakpoint-3xl: 1700px;
+
+    /*Colores de uso general*/
+    --color-card: #FFFFFF;
+    --color-principal-text: #171717;
+    --color-secondary-text: #5F5F5F;
+    --color-border:#E8E3E1;
+    --color-green: #9CFF2E;
+    --color-green-hover: #86E61F;
+    --color-green-active: #74CC18;
+    --color-gray-card: #ececec;
+}
