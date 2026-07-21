@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { MdClose } from "react-icons/md";
 import { navigation } from "../../data/navigation";
 import { navStyles } from "../../config/navigation.styles";
+import { buildUrl } from "../../utils/router";
 
 // Props para el componente MobileMenu
 type Props = {
@@ -62,7 +63,39 @@ export default function MobileMenu({ mobileOpen, setMobileOpen, currentHref }: P
                         key={item.label}
                         variants={itemVariants}
                         href={item.href}
-                        onClick={() => setMobileOpen(false)}
+                        onClick={(event) => {
+                            event.preventDefault();
+
+                            setMobileOpen(false);
+
+                            const targetId = item.href?.split("#")[1];
+
+                            if (targetId) {
+                                window.history.pushState(
+                                    null,
+                                    "",
+                                    buildUrl(item.href ?? "/")
+                                );
+
+                                document.getElementById(targetId)?.scrollIntoView({
+                                    behavior: "smooth",
+                                    block: "start",
+                                });
+
+                            } else {
+
+                                window.history.pushState(
+                                    null,
+                                    "",
+                                    buildUrl("/")
+                                );
+
+                                window.scrollTo({
+                                    top: 0,
+                                    behavior: "smooth",
+                                });
+                            }
+                        }}
                         className={navStyles.getNavItemClasses(item.href ?? "", currentHref, true)}
                     >
                         <span

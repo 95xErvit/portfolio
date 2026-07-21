@@ -24,5 +24,15 @@ export const getCurrentNavHref = (): string => {
   }
 
   const { pathname, hash } = window.location;
-  return hash ? `${pathname}${hash}` : pathname;
+
+  // BASE_URL = "/" en localhost
+  // BASE_URL = "/portfolio/" en GitHub Pages
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+  const normalizedPath =
+    pathname.startsWith(base) && base !== ""
+      ? pathname.slice(base.length) || "/"
+      : pathname;
+
+  return hash ? `${normalizedPath}${hash}` : normalizedPath;
 };

@@ -5,6 +5,7 @@ import { navigation } from "../../data/navigation";
 import LogoAstro from "../../assets/astro.svg";
 import MobileMenu from "./MobileMenu";
 import { navStyles, getCurrentNavHref } from "../../config/navigation.styles";
+import { buildUrl } from "../../utils/router";
 
 export default function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false);    // Estado para controlar si el menú móvil está abierto o cerrado
@@ -75,8 +76,7 @@ export default function Navbar() {
             }
 
             // Actualizar el href activo según la sección visible
-            const nextHref = `${window.location.pathname}#${sectionId}`;
-            setCurrentHref(nextHref);
+            setCurrentHref(`/#${sectionId}`);
             pendingSectionIdRef.current = null;
         };
 
@@ -152,14 +152,25 @@ export default function Navbar() {
 
                                     if (targetId) {
                                         pendingSectionIdRef.current = targetId;
-                                        window.history.pushState(null, "", item.href ?? "/");
+                                        
+                                        window.history.pushState(
+                                            null,
+                                            "",
+                                            buildUrl(item.href ?? "/")
+                                        );
+
                                         const targetElement = document.getElementById(targetId);
+
                                         if (targetElement) {
                                             targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
                                         }
                                     } else {
                                         pendingSectionIdRef.current = null;
-                                        window.history.pushState(null, "", "/");
+                                        window.history.pushState(
+                                            null,
+                                            "",
+                                            buildUrl("/")
+                                        );
                                         window.scrollTo({ top: 0, behavior: "smooth" });
                                     }
                                 }}
