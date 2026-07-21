@@ -1,15 +1,38 @@
-// Propiedades del componente
+import { motion } from "framer-motion";
+
+// Variantes para la animación de la tarjeta del proyecto
+const cardVariants = {
+    hidden: {
+        opacity: 0,
+        y: 12,
+        scale: 0.98,
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: {
+            duration: 0.65,
+            ease: [0.22, 1, 0.36, 1] as any,
+        },
+    },
+};
+
+// Definición de las propiedades que recibirá el componente ProjectCard
 type Props = {
     title: string;
     description: string;
     image: string;
     technologies: string[];
-    url: string;
+    index?: number;
 };
 
-export default function ProjectCard({ title, description, image, technologies, url }: Props) {
+export default function ProjectCard({title, description, image, technologies,}: Props) {
     return (
-        <article className="overflow-hidden rounded-4xl bg-white shadow-[0_10px_40px_rgba(0,0,0,.05)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_25px_60px_rgba(0,0,0,.08)]">
+        <motion.article
+            variants={cardVariants}
+            className="overflow-hidden rounded-4xl bg-white shadow-component duration-300 hover:-translate-y-2 hover:shadow-hover-component"
+        >
 
             {/* IMAGE */}
             <div className="aspect-16/10 overflow-hidden bg-[#F4F4F4]">
@@ -41,6 +64,6 @@ export default function ProjectCard({ title, description, image, technologies, u
                     ))}
                 </div>
             </div>
-        </article>
+        </motion.article>
     );
 }

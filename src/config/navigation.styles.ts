@@ -1,9 +1,12 @@
 export const navStyles = {
-  desktopLink: `flex items-center gap-2 text-lg font-semibold transition-colors duration-300 `,
+  // Clases CSS para los enlaces de navegación en escritorio
+  desktopLink: `flex items-center gap-2 text-lg font-semibold transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] `,
 
-  mobileLink: `flex items-center gap-2 text-xl font-semibold transition-colors duration-300 `,
+  // Clases CSS para los enlaces de navegación en móvil
+  mobileLink: `flex items-center gap-2 text-xl font-semibold transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] `,
 
-  activeMarker: `inline-block w-2.5 h-2.5 rounded-full bg-green-active shrink-0`,
+  // Clases CSS para el indicador de navegación activo
+  activeMarker: `inline-flex items-center justify-center w-2.5 h-2.5 rounded-full bg-green-active shrink-0 opacity-0 scale-0 pointer-events-none transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]`,
 
   // Esta función devuelve las clases CSS para un elemento de navegación, 
   // dependiendo de si es móvil o de escritorio y si está activo.

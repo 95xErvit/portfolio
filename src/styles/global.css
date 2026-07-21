@@ -54,5 +54,15 @@ html {
     --color-green: #9CFF2E;
     --color-green-hover: #86E61F;
     --color-green-active: #74CC18;
+    --color-green-title: #8ce529;
     --color-gray-card: #ececec;
+
+    /*Sombra de uso general componentes*/
+    --shadow-component: 0 10px 40px rgba(0,0,0,.05);
+
+    /*Sombra de uso hover en componentes*/
+    --shadow-hover-component: 0 10px 25px rgba(0,0,0,.06), 0 22px 55px rgba(156,255,46,.20);
+
+    /*Sombras de uso general en hover de botones*/
+    --shadow-button: 0 8px 20px rgba(0,0,0,.06), 0 24px 60px rgba(156,255,46,.24);
 }

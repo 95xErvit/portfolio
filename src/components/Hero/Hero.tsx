@@ -4,11 +4,23 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
     return (
-        <section className="w-full min-h-[85vh] flex items-center px-6 md:px-12 xl:px-24 py-20">
+        <motion.section 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="w-full min-h-[85vh] flex items-center px-6 md:px-12 xl:px-24 py-20"
+        >
             <div className="w-full max-w-360 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
                 {/* LEFT */}
-                <motion.div className="flex flex-col items-start">
+                <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="flex flex-col items-start"
+                >
 
                     {/* Badge */}
                     <div className="mb-6 px-5 py-2 rounded-full bg-[#F3FFD8] border border-[#DDF5A8]">
@@ -31,23 +43,26 @@ export default function Hero() {
 
                     {/* Actions */}
                     <div className="mt-10 flex flex-wrap gap-5">
-
-                        <button className="h-14 px-8 rounded-full bg-green text-principal-text font-semibold flex items-center gap-3 shadow-lg shadow-green/40 transition-all duration-300 hover:scale-105 hover:-translate-y-1 cursor-pointer">
+                        <a href="#projects" className="h-14 px-8 rounded-full bg-green text-principal-text font-semibold flex items-center gap-3 transition-all duration-300 hover:shadow-button hover:scale-105 hover:-translate-y-1 cursor-pointer no-underline">
                             <FiArrowRight size={18} />
                             Ver proyectos
-                        </button>
+                        </a>
 
-                        <button className="h-14 px-8 rounded-full bg-white text-principal-text font-semibold border border-[#E7E3E1] flex items-center gap-3 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer">
+                        <button className="h-14 px-8 rounded-full bg-white text-principal-text font-semibold border border-[#E7E3E1] flex items-center gap-3 transition-all duration-300 hover:shadow-button hover:-translate-y-1 cursor-pointer">
                             Descargar CV
                             <FiDownload size={18} />
                         </button>
-
                     </div>
-
                 </motion.div>
 
                 {/* RIGHT */}
-                <motion.div className="relative flex justify-center items-center min-h-137.5">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.6, delay: 0.15 }}
+                    className="relative flex justify-center items-center min-h-137.5"
+                >
 
                     {/* Placeholder principal */}
                     <div className="w-full max-w-125 h-125 backdrop-blur-sm flex flex-col items-center justify-center">
@@ -61,7 +76,7 @@ export default function Hero() {
                         </h3>
 
                         <p className="mt-4 max-w-75 text-center text-[#6B7280] leading-relaxed">
-                            Aquí podrás agregar una animación Lottie, un modelo 3D,
+                            Aquí agregaré una animación Lottie, un modelo 3D,
                             un mockup o cualquier elemento visual principal.
                         </p>
 
@@ -78,6 +93,6 @@ export default function Hero() {
                     </div>
                 </motion.div>
             </div>
-        </section>
+        </motion.section>
     );
 }

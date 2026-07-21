@@ -12,15 +12,15 @@ export const navigation: NavigationItem[] = [
   },
   {
     label: "Sobre mí",
-    href: "/#about",
+    href: "/#about-me",
   },
   {
     label: "Proyectos",
     href: "/#projects",
   },
   {
-    label: "Experiencia",
-    href: "/#experience",
+    label: "Stack",
+    href: "/#technologies",
   },
   {
     label: "Contacto",

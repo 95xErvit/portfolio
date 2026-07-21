@@ -39,7 +39,7 @@ export default function MobileMenu({ mobileOpen, setMobileOpen, currentHref }: P
             initial={{ x: "100%" }}
             animate={{ x: mobileOpen ? 0 : "100%" }}
             transition={{ duration: 0.35 }}
-            className="lg:hidden fixed top-0 right-0 w-[95%] sm:max-w-sm h-screen bg-white z-50 shadow-xl"
+            className="lg:hidden fixed top-0 right-0 w-[95%] sm:max-w-sm h-screen bg-white z-50 shadow-xl overflow-y-auto"
         >
             <motion.div
                 variants={containerVariants}
@@ -65,9 +65,10 @@ export default function MobileMenu({ mobileOpen, setMobileOpen, currentHref }: P
                         onClick={() => setMobileOpen(false)}
                         className={navStyles.getNavItemClasses(item.href ?? "", currentHref, true)}
                     >
-                        {currentHref === item.href && (
-                            <span className={navStyles.activeMarker} />
-                        )}
+                        <span
+                            className={`${navStyles.activeMarker} ${currentHref === (item.href ?? "/") ? "opacity-100 scale-100" : "opacity-0 scale-0"}`}
+                            aria-hidden="true"
+                        />
 
                         {item.label}
                     </motion.a>

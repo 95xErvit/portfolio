@@ -1,15 +1,28 @@
 import TechnologyCard from "./TechnologyCard";
 import { technologies } from "../../data/technologies";
+import { motion } from "framer-motion";
 
 export default function Technologies() {
     return (
-        <section className="px-6 md:px-12 xl:px-24 py-24">
+        <motion.section 
+            id="technologies"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="px-6 md:px-12 xl:px-24 py-24"
+        >
             <div className="max-w-360 mx-auto">
                 <div className="grid grid-cols-1 xl:grid-cols-[300px_1fr] gap-12 items-start">
 
                     {/* LEFT */}
-                    <div>
-                        <span className="uppercase text-sm font-semibold tracking-wider text-[#59B400]">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <span className="uppercase text-lg font-semibold tracking-wider text-green-title">
                             Tecnologías
                         </span>
 
@@ -18,19 +31,25 @@ export default function Technologies() {
                             <br />
                             que uso
                         </h2>
-                    </div>
+                    </motion.div>
 
                     {/* RIGHT */}
-                    <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-5">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-5"
+                    >
                         {technologies.map((technology) => (
                             <TechnologyCard
                                 key={technology.id}
                                 technology={technology}
                             />
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 }
