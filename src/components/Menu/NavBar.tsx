@@ -31,100 +31,125 @@ export default function Navbar() {
 
     // useEffect para actualizar el href activo según la ubicación y la sección visible
     useEffect(() => {
-        // Función para manejar el cambio de ubicación y actualizar el estado de currentHref
+        // IDs de las secciones que queremos rastrear
+        const sectionIds = ["about-me", "projects", "technologies", "contact"];
+
+        // Elementos de las secciones
+        const sectionElements = sectionIds
+            .map((id) => document.getElementById(id))
+            .filter((element): element is HTMLElement => Boolean(element));
+
+        // Función para actualizar el href activo
         const handleLocationChange = () => {
             const nextHref = getCurrentNavHref();
-            setCurrentHref(nextHref || "/");
+
+            if (nextHref) {
+                setCurrentHref(nextHref);
+            }
+        };
+
+        // Función para actualizar el href activo basado en la sección visible
+        const updateActiveSection = (sectionId: string | null) => {
+
+            if (!sectionId) return;
+
+            if (
+                pendingSectionIdRef.current &&
+                pendingSectionIdRef.current !== sectionId
+            ) {
+                return;
+            }
+
+            const nextHref = `/#${sectionId}`;
+
+            setCurrentHref((prev) => {
+                if (prev === nextHref) return prev;
+                return nextHref;
+            });
+
             pendingSectionIdRef.current = null;
         };
 
-        // Función para manejar el scroll y actualizar el estado de isScrolled y currentHref
-        const handleScroll = () => {
+        // Función para actualizar el href activo basado en el scroll
+        const updateActiveSectionByScroll = () => {
+
             setIsScrolled(window.scrollY > 20);
 
             if (window.scrollY < 120) {
                 setCurrentHref("/");
                 pendingSectionIdRef.current = null;
-            }
-        };
-
-        // Obtener los elementos de las secciones del menú
-        const sectionIds = ["about-me", "projects", "technologies", "contact"];
-
-        // Filtrar los elementos que existen en el DOM
-        const sectionElements = sectionIds
-            .map((id) => document.getElementById(id))
-            .filter((element): element is HTMLElement => Boolean(element));
-
-        if (sectionElements.length === 0) {
-            handleLocationChange();
-            handleScroll();
-            return;
-        }
-
-        // Función para actualizar el href activo según la sección visible
-        const updateActiveSection = (sectionId: string | null) => {
-            if (!sectionId) {
-                if (window.scrollY < 120) {
-                    setCurrentHref("/");
-                }
                 return;
             }
 
-            if (pendingSectionIdRef.current && pendingSectionIdRef.current !== sectionId) {
+            // Cuando llega al final de la página, siempre marcar Contact.
+            const isAtBottom =
+                window.innerHeight + window.scrollY >=
+                document.documentElement.scrollHeight - 5;
+
+            if (isAtBottom) {
+                updateActiveSection("contact");
                 return;
             }
 
-            // Actualizar el href activo según la sección visible
-            setCurrentHref(`/#${sectionId}`);
-            pendingSectionIdRef.current = null;
-        };
+            // Línea de referencia para determinar la sección más cercana al centro de la pantalla
+            const viewportLine = window.innerHeight * 0.35;
 
-        // Crear un IntersectionObserver para detectar qué sección está visible en la pantalla
-        const observer = new IntersectionObserver(
-    () => {
-        const activeSection = sectionElements
-            .map((section) => {
+            let closestSection: HTMLElement | null = null;
+            let closestDistance = Number.POSITIVE_INFINITY;
+
+            // Iterar sobre las secciones para encontrar la más cercana a la línea de referencia
+            for (const section of sectionElements) {
+
                 const rect = section.getBoundingClientRect();
 
-                return {
-                    id: section.id,
-                    distance: Math.abs(
-                        rect.top - window.innerHeight * 0.3
-                    ),
-                };
-            })
-            .sort((a, b) => a.distance - b.distance)[0];
+                const distance = Math.abs(rect.top - viewportLine);
 
-        if (activeSection) {
-            updateActiveSection(activeSection.id);
-        }
-    },
-    {
-        threshold: 0,
-        rootMargin: "0px",
-    }
-);
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestSection = section;
+                }
+            }
 
-        sectionElements.forEach((element) => observer.observe(element));
+            if (closestSection) {
+                updateActiveSection(closestSection.id);
+            }
+        };
 
         handleLocationChange();
-        handleScroll();
+        updateActiveSectionByScroll();
+
+        window.addEventListener("scroll", updateActiveSectionByScroll, {
+            passive: true,
+        });
 
         window.addEventListener("hashchange", handleLocationChange);
-        window.addEventListener("popstate", handleLocationChange);
-        window.addEventListener("scroll", handleScroll, { passive: true });
 
+        window.addEventListener("popstate", handleLocationChange);
+
+        // Cleanup de los event listeners al desmontar el componente
         return () => {
-            observer.disconnect();
-            window.removeEventListener("hashchange", handleLocationChange);
-            window.removeEventListener("popstate", handleLocationChange);
-            window.removeEventListener("scroll", handleScroll);
+
+            window.removeEventListener(
+                "scroll",
+                updateActiveSectionByScroll
+            );
+
+            window.removeEventListener(
+                "hashchange",
+                handleLocationChange
+            );
+
+            window.removeEventListener(
+                "popstate",
+                handleLocationChange
+            );
         };
+
     }, []);
 
+    // Función para manejar la navegación a una sección específica
     const handleNavigation = (href: string) => {
-        const targetId = href.split("#")[1];
+        const targetId = href.split("#")[1]; // Extrae el ID de la sección del href
 
         if (targetId) {
             pendingSectionIdRef.current = targetId;
@@ -187,33 +212,9 @@ export default function Navbar() {
                         <li key={item.label}>
                             <a
                                 href={item.href}
-                                onClick={(event) => {
-                                    event.preventDefault();
-                                    const targetId = item.href?.split("#")[1];
-
-                                    if (targetId) {
-                                        pendingSectionIdRef.current = targetId;
-                                        
-                                        window.history.pushState(
-                                            null,
-                                            "",
-                                            buildUrl(item.href ?? "/")
-                                        );
-
-                                        const targetElement = document.getElementById(targetId);
-
-                                        if (targetElement) {
-                                            targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-                                        }
-                                    } else {
-                                        pendingSectionIdRef.current = null;
-                                        window.history.pushState(
-                                            null,
-                                            "",
-                                            buildUrl("/")
-                                        );
-                                        window.scrollTo({ top: 0, behavior: "smooth" });
-                                    }
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    handleNavigation(item.href ?? "/");
                                 }}
                                 className={navStyles.getNavItemClasses(item.href ?? "", currentHref)}
                             >
@@ -235,9 +236,19 @@ export default function Navbar() {
                     transition={{ duration: 0.5, delay: 0.3 }}
                     className="hidden lg:flex"
                 >
-                    <a href="#contact" className="flex justify-center items-center h-14 px-8 rounded-[26px] bg-green text-principal-text md:text-xl font-semibold transition-all duration-300 hover:shadow-button hover:scale-105 cursor-pointer">
+                    <button
+                        className="
+                            flex justify-center items-center h-14 px-8 rounded-[26px] bg-green text-principal-text md:text-xl font-semibold transition-all duration-300 cursor-pointer
+                            hover:-translate-y-1 hover:shadow-button hover:bg-green-hover 
+                            active:scale-[0.98] active:bg-green-active                   
+                        "
+                        onClick={(e) => {
+                            e.preventDefault();
+                            handleNavigation("/#contact");
+                        }}
+                    >
                         Hablemos
-                    </a>
+                    </button>
                 </motion.div>
 
                 {/* HAMBURGER */}

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
     return (
-        <footer className="w-full px-4 md:px-8 lg:px-12 pb-8">
+        <footer className="w-full px-4 md:px-8 lg:px-12 p-8">
 
             {/* CONTACT CTA */}
             <motion.section 

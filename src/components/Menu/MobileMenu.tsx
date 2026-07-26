@@ -84,7 +84,13 @@ export default function MobileMenu({ mobileOpen, setMobileOpen, currentHref, onN
 
                 {/* Botón de acción */}
                 <motion.div variants={itemVariants} className="mt-8">
-                    <button className="w-full h-14 text-xl rounded-full bg-green text-principal-text font-semibold transition-all duration-300 hover:scale-105">
+                    <button 
+                        className="
+                            w-full h-14 text-xl rounded-full bg-green text-principal-text font-semibold transition-all duration-300 hover:scale-105
+                            hover:-translate-y-1 hover:shadow-button hover:bg-green-hover 
+                            active:scale-[0.98] active:bg-green-active
+                        "
+                    >
                         Hablemos
                     </button>
                 </motion.div>
