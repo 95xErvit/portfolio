@@ -9,7 +9,7 @@ export default function TechnologyCard({technology}: Props) {
     const Icon = technology.icon; // obtener el componente con el icono de la tecnología
 
     return (
-        <article className="group bg-white rounded-3xl p-6 shadow-component border border-border transition-all duration-300 hover:-translate-y-2 hover:shadow-hover-component">
+        <article className="group bg-white rounded-3xl p-6 shadow-component border border-border-white transition-all duration-300 hover:-translate-y-2 hover:shadow-hover-component">
             <div className="flex flex-col items-center justify-center gap-5">
                 <Icon
                     size={48}

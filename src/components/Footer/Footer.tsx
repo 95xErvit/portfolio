@@ -92,7 +92,11 @@ export default function Footer() {
                             href="https://api.whatsapp.com/send/?phone=573166100902&text=Hola,%20Erik!%20Me%20gustar%C3%ADa%20trabajar%20con%20vos.%20&app_absent=0" 
                             target="_blank" 
                             rel="noopener noreferrer" 
-                            className="h-14 px-10 rounded-full bg-green text-principal-text font-semibold flex items-center gap-3 transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-button cursor-pointer"
+                            className="
+                                flex items-center justify-center gap-3 h-14 px-8 rounded-full bg-green text-principal-text font-semibold transition-all duration-300 cursor-pointer no-underline 
+                                hover:-translate-y-1 hover:shadow-button hover:bg-green-hover 
+                                active:scale-[0.98] active:bg-green-active
+                            "
                         >
                             Enviar mensaje
 
@@ -117,11 +121,29 @@ export default function Footer() {
                 </p>
 
                 <div className="flex items-center gap-8">
-                    <a href="https://github.com/95xErvit" target="_blank" rel="noopener noreferrer" className="text-[28px] text-principal-text transition-colors duration-300 hover:text-green">
+                    <a 
+                        href="https://github.com/95xErvit" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="
+                            text-[28px] text-principal-text transition-colors duration-300
+                            hover:shadow-button hover:text-green-hover 
+                            active:text-green-active
+                        "
+                    >
                         <FaGithub />
                     </a>
 
-                    <a href="www.linkedin.com/in/erik-villarreal-614094224" target="_blank" rel="noopener noreferrer" className="text-[28px] text-principal-text transition-colors duration-300 hover:text-green">
+                    <a 
+                        href="https://www.linkedin.com/in/erik-villarreal-614094224" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="
+                            text-[28px] text-principal-text transition-colors duration-300
+                            hover:shadow-button hover:text-green-hover 
+                            active:text-green-active
+                        "
+                    >
                         <FaLinkedinIn />
                     </a>
                 </div>

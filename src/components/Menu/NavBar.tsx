@@ -82,20 +82,29 @@ export default function Navbar() {
 
         // Crear un IntersectionObserver para detectar qué sección está visible en la pantalla
         const observer = new IntersectionObserver(
-            (entries) => {
-                const visibleEntry = entries
-                    .filter((entry) => entry.isIntersecting)
-                    .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    () => {
+        const activeSection = sectionElements
+            .map((section) => {
+                const rect = section.getBoundingClientRect();
 
-                if (visibleEntry) {
-                    updateActiveSection(visibleEntry.target.id);
-                }
-            },
-            {
-                threshold: [0.2, 0.4, 0.6],
-                rootMargin: "-10% 0px -45% 0px",
-            }
-        );
+                return {
+                    id: section.id,
+                    distance: Math.abs(
+                        rect.top - window.innerHeight * 0.3
+                    ),
+                };
+            })
+            .sort((a, b) => a.distance - b.distance)[0];
+
+        if (activeSection) {
+            updateActiveSection(activeSection.id);
+        }
+    },
+    {
+        threshold: 0,
+        rootMargin: "0px",
+    }
+);
 
         sectionElements.forEach((element) => observer.observe(element));
 
@@ -113,6 +122,38 @@ export default function Navbar() {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
+
+    const handleNavigation = (href: string) => {
+        const targetId = href.split("#")[1];
+
+        if (targetId) {
+            pendingSectionIdRef.current = targetId;
+
+            window.history.pushState(
+                null,
+                "",
+                buildUrl(href)
+            );
+
+            document.getElementById(targetId)?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        } else {
+            pendingSectionIdRef.current = null;
+
+            window.history.pushState(
+                null,
+                "",
+                buildUrl("/")
+            );
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
+        }
+    };
 
     return (
         <div className={`relative lg:sticky lg:top-0 lg:z-50 transition-all duration-300 ${isScrolled ? "lg:top-0" : "lg:top-0"}`}>
@@ -219,7 +260,7 @@ export default function Navbar() {
             )}
 
             {/* MENU MÓVIL */}
-            <MobileMenu mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} currentHref={currentHref}/>
+            <MobileMenu mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} currentHref={currentHref} onNavigate={handleNavigation}/>
         </div>
     );
 }

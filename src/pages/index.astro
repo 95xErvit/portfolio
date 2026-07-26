@@ -1,13 +1,23 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
-import Header from './Header.astro';
-import Hero from './Hero.astro';
-import Footer from './Footer.astro';
+import Navbar from "../components/Menu/NavBar";
+import Hero from "../components/Hero/Hero";
+import AboutMe from "../components/AboutMe/AboutMe";
+import FeaturedProjects from "../components/FeaturedProjects/Projects";
+import TechStack from "../components/TechStack/Technologies";
+import Footer from "../components/Footer/Footer";
 ---
 
 <Layout>
-	<Header />
-	<Hero />
-	<Footer />
+    <Navbar client:load />
+
+    <main class="flex-1">
+        <Hero client:load />
+        <AboutMe client:load />
+        <FeaturedProjects client:load />
+        <TechStack client:load />
+    </main>
+
+    <Footer client:load />
 </Layout>

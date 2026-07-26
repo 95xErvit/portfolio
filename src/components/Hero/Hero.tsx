@@ -43,12 +43,24 @@ export default function Hero() {
 
                     {/* Actions */}
                     <div className="mt-10 flex flex-wrap gap-5">
-                        <a href="#projects" className="h-14 px-8 rounded-full bg-green text-principal-text font-semibold flex items-center gap-3 transition-all duration-300 hover:shadow-button hover:scale-105 hover:-translate-y-1 cursor-pointer no-underline">
-                            <FiArrowRight size={18} />
+                        <a 
+                            href="#projects" 
+                            className="
+                                flex items-center gap-3 h-14 px-8 rounded-full bg-green text-principal-text font-semibold transition-all duration-300 cursor-pointer no-underline 
+                                hover:-translate-y-1 hover:shadow-button hover:bg-green-hover 
+                                active:scale-[0.98] active:bg-green-active
+                            "
+                        >
                             Ver proyectos
+                            <FiArrowRight size={18} />
                         </a>
 
-                        <button className="h-14 px-8 rounded-full bg-white text-principal-text font-semibold border border-[#E7E3E1] flex items-center gap-3 transition-all duration-300 hover:shadow-button hover:-translate-y-1 cursor-pointer">
+                        <button 
+                            className="
+                                flex items-center gap-3 h-14 px-8 rounded-full bg-white text-principal-text font-semibold border border-border-white transition-all duration-300 cursor-pointer
+                                hover:-translate-y-1 hover:shadow-button hover:bg-gray-100
+                                active:scale-[0.98] active:bg-gray-200"
+                            >
                             Descargar CV
                             <FiDownload size={18} />
                         </button>
@@ -66,7 +78,6 @@ export default function Hero() {
 
                     {/* Placeholder principal */}
                     <div className="w-full max-w-125 h-125 backdrop-blur-sm flex flex-col items-center justify-center">
-
                         <div className="w-28 h-28 rounded-full bg-[#F3FFD8] flex items-center justify-center mb-6">
                             <div className="w-14 h-14 rounded-full bg-green" />
                         </div>
@@ -79,7 +90,6 @@ export default function Hero() {
                             Aquí agregaré una animación Lottie, un modelo 3D,
                             un mockup o cualquier elemento visual principal.
                         </p>
-
                     </div>
 
                     {/* Badge flotante */}

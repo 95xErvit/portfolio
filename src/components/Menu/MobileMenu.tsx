@@ -10,9 +10,10 @@ type Props = {
     mobileOpen: boolean;
     setMobileOpen: (value: boolean) => void;
     currentHref: string;
+    onNavigate: (href: string) => void;
 };
 
-export default function MobileMenu({ mobileOpen, setMobileOpen, currentHref }: Props) {
+export default function MobileMenu({ mobileOpen, setMobileOpen, currentHref, onNavigate }: Props) {
     // Variantes para animaciones de framer-motion
     const containerVariants = {
         hidden: {},
@@ -68,33 +69,7 @@ export default function MobileMenu({ mobileOpen, setMobileOpen, currentHref }: P
 
                             setMobileOpen(false);
 
-                            const targetId = item.href?.split("#")[1];
-
-                            if (targetId) {
-                                window.history.pushState(
-                                    null,
-                                    "",
-                                    buildUrl(item.href ?? "/")
-                                );
-
-                                document.getElementById(targetId)?.scrollIntoView({
-                                    behavior: "smooth",
-                                    block: "start",
-                                });
-
-                            } else {
-
-                                window.history.pushState(
-                                    null,
-                                    "",
-                                    buildUrl("/")
-                                );
-
-                                window.scrollTo({
-                                    top: 0,
-                                    behavior: "smooth",
-                                });
-                            }
+                            onNavigate(item.href ?? "/");
                         }}
                         className={navStyles.getNavItemClasses(item.href ?? "", currentHref, true)}
                     >

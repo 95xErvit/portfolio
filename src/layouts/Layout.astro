@@ -1,10 +1,4 @@
 ---
-import AboutMe from "../components/AboutMe/AboutMe";
-import FeaturedProjects from "../components/FeaturedProjects/Projects";
-import Footer from "../components/Footer/Footer";
-import Hero from "../components/Hero/Hero";
-import Navbar from "../components/Menu/NavBar";
-import TechStack from "../components/TechStack/Technologies";
 import "../styles/global.css";
 ---
 
@@ -25,15 +19,6 @@ import "../styles/global.css";
 	</head>
 
 	<body class="min-h-screen flex flex-col">
-		<Navbar client:load />
-
-		<main class="flex-1">
-			<Hero client:load/>
-			<AboutMe client:load/>
-			<FeaturedProjects client:load/>
-			<TechStack client:load/>
-		</main>
-
-		<Footer client:load/>
+		<slot />
 	</body>
 </html>
