@@ -19,3 +19,7 @@ export const getBaseUrl = () => {
 export const buildUrl = (href: string) => {
     return `${getBaseUrl()}${href}`;
 };
+
+export const buildAssetUrl = (path: string) => {
+    return `${getBaseUrl()}${path.startsWith("/") ? path : `/${path}`}`;
+};

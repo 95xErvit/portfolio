@@ -3,7 +3,7 @@ import { projects } from "../../data/project";
 import { motion } from "framer-motion";
 
 export default function Projects() {
-
+    // Variantes para la animación del encabezado
     const headerVariants = {
         hidden: {
             opacity: 0,
@@ -19,6 +19,7 @@ export default function Projects() {
         },
     };
 
+    // Variantes para la animación del contenedor de proyectos
     const containerVariants = {
         hidden: {},
         visible: {

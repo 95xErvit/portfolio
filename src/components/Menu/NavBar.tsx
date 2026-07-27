@@ -2,17 +2,17 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { navigation } from "../../data/navigation";
-import LogoAstro from "../../assets/astro.svg";
-import MobileMenu from "./MobileMenu";
 import { navStyles, getCurrentNavHref } from "../../config/navigation.styles";
 import { buildUrl } from "../../utils/router";
+import LogoAstro from "../../assets/astro.svg";
+import MobileMenu from "./MobileMenu";
 
 export default function Navbar() {
-    const [mobileOpen, setMobileOpen] = useState(false);    // Estado para controlar si el menú móvil está abierto o cerrado
-    const [currentHref, setCurrentHref] = useState("/");    // Estado para almacenar la URL actual
-    const [isScrolled, setIsScrolled] = useState(false);     // Estado para activar el menú fijo tras scroll
-    const navRef = useRef<HTMLDivElement>(null);            // Referencia al elemento de navegación
-    const pendingSectionIdRef = useRef<string | null>(null); // Espera a que la sección quede visible antes de marcarla
+    const [mobileOpen, setMobileOpen] = useState(false);        // Estado para controlar si el menú móvil está abierto o cerrado
+    const [currentHref, setCurrentHref] = useState("/");        // Estado para almacenar la URL actual
+    const [isScrolled, setIsScrolled] = useState(false);        // Estado para activar el menú fijo tras scroll
+    const navRef = useRef<HTMLDivElement>(null);                // Referencia al elemento de navegación
+    const pendingSectionIdRef = useRef<string | null>(null);    // Espera a que la sección quede visible antes de marcarla
 
     // useEffect para manejar clics fuera del menú de navegación
     useEffect(() => {
