@@ -184,7 +184,7 @@ export default function Navbar() {
         <div className={`relative lg:sticky lg:top-0 lg:z-50 transition-all duration-300 ${isScrolled ? "lg:top-0" : "lg:top-0"}`}>
             <nav
                 ref={navRef}
-                className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-20 py-4 sm:py-6 transition-all duration-300 ${isScrolled ? "bg-white/90 backdrop-blur-sm shadow-sm" : "bg-transparent"}`}
+                className={`fixed md:static top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-20 py-4 sm:py-6 transition-all duration-300 ${isScrolled ? "bg-white/90 backdrop-blur-sm shadow-sm" : "bg-transparent"}`}
             >
                 {/* LOGO */}
                 <motion.div

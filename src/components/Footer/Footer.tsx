@@ -52,7 +52,7 @@ export default function Footer() {
                     >
                         <div className="flex items-center gap-4">
                             <div className="w-10 h-10 rounded-full bg-[#E8FFD0] flex items-center justify-center">
-                                <FiMail className="text-green text-xl" />
+                                <FiMail className="text-green-title text-xl" />
                             </div>
 
                             <a href="mailto:erikvillarreal9505@gmail.com" className="text-principal-text font-medium hover:text-secondary-text transition-colors duration-300">
@@ -62,7 +62,7 @@ export default function Footer() {
 
                         <div className="flex items-center gap-4">
                             <div className="w-10 h-10 rounded-full bg-[#E8FFD0] flex items-center justify-center">
-                                <FiMapPin className="text-green text-xl" />
+                                <FiMapPin className="text-green-title text-xl" />
                             </div>
 
                             <span className="text-principal-text font-medium">
@@ -72,7 +72,7 @@ export default function Footer() {
 
                         <div className="flex items-center gap-4">
                             <div className="w-10 h-10 rounded-full bg-[#E8FFD0] flex items-center justify-center">
-                                <FiClock className="text-green text-xl" />
+                                <FiClock className="text-green-title text-xl" />
                             </div>
 
                             <span className="text-principal-text font-medium">
