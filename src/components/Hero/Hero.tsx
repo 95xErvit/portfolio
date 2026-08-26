@@ -1,12 +1,10 @@
 import React from "react";
 import { FiArrowRight, FiDownload } from "react-icons/fi";
 import { motion } from "framer-motion";
-import ErikPhoto from "../../../public/erik.jpg";
-import { RiCodeSSlashLine } from 'react-icons/ri'; // Para Código
-import { AiOutlineBulb } from 'react-icons/ai';    // Para Innovación
 import { RiPaletteLine } from 'react-icons/ri';  // Para Diseño/Creatividad
 import { ImEmbed2 } from "react-icons/im";
 import { HiOutlineLightBulb } from 'react-icons/hi';
+import { buildUrl } from "../../utils/router";
 
 export default function Hero() {
     // Configuración de la animación flotante suave
@@ -100,7 +98,7 @@ export default function Hero() {
                             {/* Contenedor circular del Memoji */}
                             <div className="w-full h-full rounded-full overflow-hidden bg-linear-to-b from-[#e5e7eb] to-[#d1d5db] flex items-center justify-center">
                                 <img
-                                    src={ErikPhoto.src} // Reemplaza por la ruta de tu Memoji 3D
+                                    src={buildUrl("/Erik.jpg")}
                                     alt="Erik Memoji 3D"
                                     className="w-full h-full object-cover object-top"
                                 />
