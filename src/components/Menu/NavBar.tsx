@@ -4,7 +4,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { navigation } from "../../data/navigation";
 import { navStyles, getCurrentNavHref } from "../../config/navigation.styles";
 import { buildUrl } from "../../utils/router";
-import LogoAstro from "../../assets/astro.svg";
 import MobileMenu from "./MobileMenu";
 
 export default function Navbar() {
@@ -194,9 +193,9 @@ export default function Navbar() {
                 >
                     <a href="/">
                         <img
-                            src={LogoAstro.src}
+                            src={buildUrl("/Erik_Logo.png")}
                             alt="Logo"
-                            className="w-25 h-15 cursor-pointer"
+                            className="w-40 h-10 cursor-pointer"
                         />
                     </a>
                 </motion.div>

@@ -91,16 +91,16 @@ export default function Hero() {
                     className="relative flex justify-center items-center md:min-h-137.5"
                 >
                     {/* Columna Derecha: Avatar Memoji 3D con animación */}
-                    <div className="relative flex items-center justify-center w-[320px] h-80 sm:w-95 sm:h-95">
+                    <div className="relative flex items-center justify-center w-80 h-80 sm:w-100 sm:h-100">
                         {/* Anillo exterior con gradiente azul-verde suave */}
-                        <div className="relative w-70 h-70 sm:w-85 sm:h-85 rounded-full p-0.75 bg-linear-to-b from-[#8eb2d8] via-[#a6d7c4] to-[#c2eb71] shadow-lg flex items-center justify-center">
+                        <div className="relative w-80 h-80 sm:w-100 sm:h-100 rounded-full p-4 bg-linear-to-b from-[#8eb2d8] via-[#a6d7c4] to-[#c2eb71] shadow-lg flex items-center justify-center">
                             
                             {/* Contenedor circular del Memoji */}
                             <div className="w-full h-full rounded-full overflow-hidden bg-linear-to-b from-[#e5e7eb] to-[#d1d5db] flex items-center justify-center">
                                 <img
-                                    src={buildUrl("/Erik.jpg")}
+                                    src={buildUrl("/Erik_Memoji.png")}
                                     alt="Erik Memoji 3D"
-                                    className="w-full h-full object-cover object-top"
+                                    className="w-80 h-80 object-cover object-center"
                                 />
                             </div>
 
