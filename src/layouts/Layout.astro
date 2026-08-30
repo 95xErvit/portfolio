@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { buildUrl } from "../utils/router";
 ---
 
 <!doctype html>
@@ -7,7 +8,7 @@ import "../styles/global.css";
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/public/Erik_Favicon.png" />
+		<link rel="icon" type="image/svg+xml" href={buildUrl("/Erik_Favicon.png")} />
 		<!-- Google Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
