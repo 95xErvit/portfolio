@@ -66,7 +66,7 @@ export default function Footer() {
                             </div>
 
                             <span className="text-principal-text font-medium">
-                                Medellín,Colombia
+                                Bello,Antioquia,Colombia
                             </span>
                         </div>
 
@@ -98,7 +98,7 @@ export default function Footer() {
                                 active:scale-[0.98] active:bg-green-active
                             "
                         >
-                            Enviar mensaje
+                            Contáctame via whatsapp
 
                             <div className="w-7 h-7 rounded-full border border-text-principal flex items-center justify-center">
                                 <FiArrowUpRight size={14} />

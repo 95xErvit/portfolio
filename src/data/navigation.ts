@@ -20,7 +20,7 @@ export const navigation: NavigationItem[] = [
   },
   {
     label: "Stack",
-    href: "/#technologies",
+    href: "/#stack",
   },
   {
     label: "Contacto",

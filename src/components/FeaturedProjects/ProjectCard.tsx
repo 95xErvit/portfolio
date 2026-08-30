@@ -23,11 +23,11 @@ type Props = {
     title: string;
     description: string;
     image: string;
-    technologies: string[];
+    url: string;
     index?: number;
 };
 
-export default function ProjectCard({title, description, image, technologies,}: Props) {
+export default function ProjectCard({title, description, image, url}: Props) {
     return (
         <motion.article
             variants={cardVariants}
@@ -39,7 +39,7 @@ export default function ProjectCard({title, description, image, technologies,}: 
                 <img
                     src={image}
                     alt={title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    className="w-full h-full object-cover"
                 />
             </div>
 
@@ -49,20 +49,26 @@ export default function ProjectCard({title, description, image, technologies,}: 
                     {title}
                 </h3>
 
-                <p className="mt-4 text-[#6B7280] leading-8">
+                <p className="my-4 text-[#6B7280] leading-8">
                     {description}
                 </p>
 
-                <div className="flex flex-wrap gap-3 mt-8">
-                    {technologies.map((technology) => (
-                        <span
-                            key={technology}
-                            className="px-4 py-2 rounded-full bg-[#F5F5F5] text-sm font-medium text-[#5B5B5B]"
-                        >
-                            {technology}
-                        </span>
-                    ))}
-                </div>
+                <a
+                    href={url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-block"
+                >
+                    <span
+                        className="
+                            flex items-center justify-center gap-3 h-14 px-8 rounded-full bg-green text-principal-text font-semibold transition-all duration-300 cursor-pointer no-underline
+                            hover:shadow-button hover:bg-green-hover
+                            active:scale-[0.98] active:bg-green-active
+                        "
+                    >
+                        Ver proyecto
+                    </span>
+                </a>
             </div>
         </motion.article>
     );
