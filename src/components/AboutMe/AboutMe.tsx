@@ -11,7 +11,7 @@ export default function AboutMe() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="px-6 md:px-12 xl:px-24 py-24"
+            className="px-6 md:px-12 xl:px-24 py-20 md:py-14 lg:py-24"
         >
             <div className="max-w-360 mx-auto rounded-[42px] bg-gray-card px-8 md:px-12 xl:px-16 py-16">
                 <div className="grid grid-cols-1 xl:grid-cols-[430px_1fr] gap-20">

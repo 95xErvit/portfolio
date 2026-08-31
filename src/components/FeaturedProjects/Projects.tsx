@@ -64,7 +64,7 @@ export default function Projects() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.15 }}
-                    className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-16"
+                    className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mt-16"
                 >
                     {projects.map((project, index) => (
                         <ProjectCard

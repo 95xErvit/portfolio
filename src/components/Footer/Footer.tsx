@@ -1,6 +1,6 @@
 
-import { FiMail, FiMapPin, FiClock, FiArrowUpRight } from "react-icons/fi";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FiMail, FiMapPin, FiClock } from "react-icons/fi";
+import { FaGithub, FaLinkedinIn, FaWhatsapp  } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 export default function Footer() {
@@ -98,10 +98,10 @@ export default function Footer() {
                                 active:scale-[0.98] active:bg-green-active
                             "
                         >
-                            Contáctame via whatsapp
+                            Contáctame
 
-                            <div className="w-7 h-7 rounded-full border border-text-principal flex items-center justify-center">
-                                <FiArrowUpRight size={14} />
+                            <div className="flex items-center justify-center">
+                                <FaWhatsapp size={28} />
                             </div>
                         </a>
                     </motion.div>

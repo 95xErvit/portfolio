@@ -26,7 +26,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="w-full flex items-center px-6 md:px-12 xl:px-24 py-28 md:py-10 xl:py-14"
         >
-            <div className="w-full max-w-360 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div className="w-full max-w-360 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 md:gap-10 xl:gap-20 items-center">
 
                 {/* LEFT */}
                 <motion.div 
@@ -70,7 +70,9 @@ export default function Hero() {
                             <FiArrowRight size={18} />
                         </a>
 
-                        <button 
+                        <a 
+                            href={buildUrl("/HV_Erik_Villarreal.pdf")}
+                            download="HV_Erik_Villarreal.pdf"
                             className="
                                 flex items-center gap-2 md:gap-3 h-14 px-5 md:px-8 rounded-full bg-white text-xs md:text-base text-principal-text font-semibold border border-border-white transition-all duration-300 cursor-pointer
                                 hover:-translate-y-1 hover:shadow-button hover:bg-gray-100
@@ -78,7 +80,7 @@ export default function Hero() {
                             >
                             Descargar CV
                             <FiDownload size={18} />
-                        </button>
+                        </a>
                     </div>
                 </motion.div>
 
@@ -137,7 +139,7 @@ export default function Hero() {
                     </div>
                     
                     {/* Badge flotante */}
-                    <div className="absolute -bottom-20 md:bottom-0 md:right-0 bg-white p-4 rounded-3xl shadow-lg border border-[#F0ECEA]">
+                    <div className="absolute -bottom-24 md:bottom-0 md:right-0 bg-white p-4 rounded-3xl shadow-lg border border-[#F0ECEA]">
                         <div className="flex max-w-60 items-center gap-3">
                             <div className="shrink-0 w-3 h-3 rounded-full bg-green" />
                             <span className="text-principal-text font-medium">

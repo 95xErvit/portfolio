@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { FiMail, FiMapPin, FiClock, FiArrowUpRight } from "react-icons/fi";
 
 // Variantes para la animación de la tarjeta del proyecto
 const cardVariants = {
@@ -49,9 +50,10 @@ export default function ProjectCard({title, description, image, url}: Props) {
                     {title}
                 </h3>
 
-                <p className="my-4 text-[#6B7280] leading-8">
-                    {description}
-                </p>
+                <p 
+                    className="my-4 text-[#6B7280] leading-8"
+                    dangerouslySetInnerHTML={{ __html: description }}
+                ></p>
 
                 <a
                     href={url}
@@ -67,6 +69,10 @@ export default function ProjectCard({title, description, image, url}: Props) {
                         "
                     >
                         Ver proyecto
+                        
+                        <div className="w-7 h-7 rounded-full border border-text-principal flex items-center justify-center">
+                            <FiArrowUpRight size={14} />
+                        </div>
                     </span>
                 </a>
             </div>
