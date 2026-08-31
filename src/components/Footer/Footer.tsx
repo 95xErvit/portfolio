@@ -30,7 +30,7 @@ export default function Footer() {
                             Contáctame
                         </span>
 
-                        <h2 className="text-[36px] md:text-[52px] leading-[1.1] font-bold text-principal-text">
+                        <h2 className="text-4xl md:text-5xl lg:text-4xl xl:text-5xl leading-[1.1] font-bold text-principal-text">
                             ¿Tienes un proyecto
                             <br />
                             en mente? Hablemos

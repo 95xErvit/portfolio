@@ -45,7 +45,7 @@ export default function Hero() {
                     </div>
 
                     {/* Title */}
-                    <h1 className="text-[52px] md:text-[72px] leading-[1.05] font-bold text-principal-text max-w-175">
+                    <h1 className="text-[40px] md:text-[56px] lg:text-[58px] 2xl:text-[72px] leading-[1.05] font-bold text-principal-text max-w-175">
                         Desarrollo productos digitales que las personas disfrutan usar
                         <span className="text-green">.</span>
                     </h1>

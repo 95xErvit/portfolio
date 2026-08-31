@@ -26,7 +26,7 @@ export default function Technologies() {
                             Tecnologías
                         </span>
 
-                        <h2 className="mt-4 text-5xl leading-[1.08] font-bold text-principal-text">
+                        <h2 className="mt-4 text-4xl md:text-5xl leading-[1.08] font-bold text-principal-text">
                             Herramientas
                             <br />
                             que uso

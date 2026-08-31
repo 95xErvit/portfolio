@@ -27,7 +27,7 @@ export default function AboutMe() {
                             Mi enfoque
                         </span>
 
-                        <h2 className="mt-5 text-5xl leading-[1.08] font-bold text-principal-text">
+                        <h2 className="mt-5 text-4xl md:text-5xl leading-[1.08] font-bold text-principal-text">
                             Diseño.
                             <br />
                             Desarrollo.

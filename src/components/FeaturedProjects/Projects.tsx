@@ -53,7 +53,7 @@ export default function Projects() {
                         Mis Proyectos
                     </span>
 
-                    <h3 className="mt-5 text-5xl leading-[1.08] font-bold text-principal-text">
+                    <h3 className="mt-5 text-3xl md:text-5xl leading-[1.08] font-bold text-principal-text">
                         Proyectos en los que he colaborado en el diseño, desarrollo y producto.
                     </h3>
                 </motion.div>
