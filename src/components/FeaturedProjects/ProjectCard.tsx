@@ -46,7 +46,7 @@ export default function ProjectCard({title, description, image, url}: Props) {
 
             {/* CONTENT */}
             <div className="p-8">
-                <h3 className="text-[30px] font-semibold text-principal-text">
+                <h3 className="text-2xl md:text-[30px] font-semibold text-principal-text">
                     {title}
                 </h3>
 

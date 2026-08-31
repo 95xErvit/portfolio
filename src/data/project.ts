@@ -3,7 +3,7 @@ import { buildAssetUrl } from "../utils/router";
 export const projects = [
     {
         id: 1,
-        title: "Intranet Financiera",
+        title: "Intranet Corporativa",
         description: "Desarrollo web de actualización del portal de intranet para <strong>la Feria del brasier y solo kuko's</strong> para la gestión de información y procesos internos de la empresa, incluyendo módulo de administración y módulos por área de la compañia, para su comunicación y colaboración.",
         image: buildAssetUrl("/Intranet_FDB.png"),
         url: "https://intranet.feriadelbrasier.com.co/",
