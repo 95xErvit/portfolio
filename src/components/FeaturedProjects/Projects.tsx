@@ -35,7 +35,7 @@ export default function Projects() {
             id="projects"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.05 }}
             transition={{ duration: 0.6 }}
             className="px-6 md:px-12 xl:px-24 py-24"
         >
@@ -46,7 +46,7 @@ export default function Projects() {
                     variants={headerVariants}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.05 }}
                     className="max-w-5xl"
                 >
                     <span className="uppercase text-lg font-semibold tracking-wider text-green-title">
@@ -63,7 +63,7 @@ export default function Projects() {
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, amount: 0.15 }}
+                    viewport={{ once: true, amount: 0.05 }}
                     className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mt-16"
                 >
                     {projects.map((project, index) => (
